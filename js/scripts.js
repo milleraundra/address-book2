@@ -19,6 +19,7 @@ $(document).ready(function() {
 
 		$("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
 
+		// this code clears the form fields
 		$("input#new-first-name").val("");
 		$("input#new-last-name").val("");
 
