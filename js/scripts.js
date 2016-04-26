@@ -51,26 +51,22 @@ $(document).ready(function() {
 
 	$("form#new-contact").submit(function(event) {
 		event.preventDefault();
-
 		var inputtedFirstName = $("input#new-first-name").val();
 		var inputtedLastName = $("input#new-last-name").val();
 		 newContact = new Contact(inputtedFirstName, inputtedLastName);
 
 		$(".new-address").each(function() {
-  var inputtedStreet = $(this).find("input.new-street").val();
-  var inputtedCity = $(this).find("input.new-city").val();
-  var inputtedState = $(this).find("input.new-state").val();
-  var newAddress = new Address(inputtedStreet, inputtedCity, inputtedState)
-  newContact.addresses.push(newAddress)
-});
+		  var inputtedStreet = $(this).find("input.new-street").val();
+		  var inputtedCity = $(this).find("input.new-city").val();
+		  var inputtedState = $(this).find("input.new-state").val();
+		  var newAddress = new Address(inputtedStreet, inputtedCity, inputtedState)
+		  newContact.addresses.push(newAddress)
+		});
 
 		$("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
 
-
-
 		// this code clears the form fields
 		resetFields();
-
 
 		$(".contact").last().click(function() {
 			$("ul#addresses").text("");
@@ -78,12 +74,10 @@ $(document).ready(function() {
   			$("ul#addresses").append("<li>" + address.fullAddress() + "</li>");
 			});
 
-		$("#show-contact").show();
-		$("#show-contact h2").text(newContact.fullName());
-		$(".first-name").text(newContact.firstName);
-		$(".last-name").text(newContact.lastName);
+			$("#show-contact").show();
+			$("#show-contact h2").text(newContact.fullName());
+			$(".first-name").text(newContact.firstName);
+			$(".last-name").text(newContact.lastName);
+		});
 	});
-
-	});
-
 });
